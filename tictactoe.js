@@ -1,10 +1,21 @@
 var nextPlayer = true;
 
+var boardState = [
+  null, null, null,
+  null, null, null,
+  null, null, null
+];
+
 function play(box) {
-  if (nextPlayer) {
-    box.innerHTML = 'x';
+  if (boardState[box.id] == null) {
+    if (nextPlayer) {
+      boardState[box.id] = 'x';
+    } else {
+      boardState[box.id] = 'o';
+    }
+    nextPlayer = !nextPlayer;
   } else {
-    box.innerHTML = 'o';
-  }
-  nextPlayer = !nextPlayer;
-}
+    alert('grow up. you can\'t do that')
+  };
+  console.log(boardState);
+};
